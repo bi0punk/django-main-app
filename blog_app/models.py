@@ -11,16 +11,15 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = "categories"
 
-    def __str__(self):
-        return self.short_name
-
+    def __str__(self): """
+        return self.short_name """
 
 class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     body = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
-    categories = models.ManyToManyField(Category)
+    """ categories = models.ManyToManyField(Category) """
 
     class Meta:
         ordering = ['-created_at']
